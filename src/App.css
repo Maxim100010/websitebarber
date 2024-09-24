@@ -1,0 +1,12 @@
+.app {
+  background: var(--mantine-color-red-1);
+  color: var(--mantine-color-red-9);
+  font-family: var(--mantine-font-family);
+  border-radius: var(--mantine-radius-md);
+}
+
+@font-face {
+  font-family: "BebasRegular";   /*Can be any text*/
+  src: local("BebasNeue-Regular"),
+  url("./fonts/BebasNeue-Regular.ttf") format("truetype");
+}
