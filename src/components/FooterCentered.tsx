@@ -13,17 +13,11 @@ export function FooterCentered() {
                     src="src/assets/logo-text-removebg.png"
                 />
 
-                <Text size={rem(12)}>
+                <Text size={rem(12)} className={classes.text}>
                     © 2024 La Casa De Barber
                 </Text>
 
                 <Group gap="xs" justify="flex-end" wrap="nowrap">
-                    <ActionIcon size="lg" variant="default" radius="xl">
-                        <IconBrandTwitter style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-                    </ActionIcon>
-                    <ActionIcon size="lg" variant="default" radius="xl">
-                        <IconBrandYoutube style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-                    </ActionIcon>
                     <ActionIcon size="lg" variant="default" radius="xl">
                         <IconBrandInstagram style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
                     </ActionIcon>

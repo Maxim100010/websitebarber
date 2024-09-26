@@ -1,0 +1,15 @@
+.card {
+    height: rem(540px);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0;
+}
+
+.div{
+    min-height: 700px;
+    @media (max-width: $mantine-breakpoint-sm) {
+        min-height: 500px;
+    }
+    padding: 128px 0 128px 0;
+}
+

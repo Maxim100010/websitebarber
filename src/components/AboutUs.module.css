@@ -23,7 +23,7 @@
 }
 
 .titleRight{
-    text-align: right;
+    text-align: center;
     font-family: BebasRegular, "Roboto", sans-serif;
     font-weight: 200;
     text-decoration: underline;
@@ -64,11 +64,19 @@
 .grp{
     justify-content: space-between;
     align-items: center;
-    padding: 50px 100px 75px 100px;
+    padding: 50px 200px 75px 100px;
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: $mantine-breakpoint-md) {
         height: fit-content;
-        padding: 50px 50px 0px 50px;
+        padding: 50px 50px 50px 50px;
         justify-content: center;
+        gap: 50px;
+    }
+}
+
+.div{
+    min-height: 700px;
+    @media (max-width: $mantine-breakpoint-sm) {
+        min-height: 500px;
     }
 }

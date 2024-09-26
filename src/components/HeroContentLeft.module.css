@@ -3,6 +3,7 @@
     background-image: url("src/assets/herobackground.png");
     background-size: cover;
     background-position: center;
+    min-height: rem(700px);
 }
 
 .container {
@@ -49,7 +50,7 @@
 
     @media (max-width: $mantine-breakpoint-sm) {
         max-width: 100%;
-        font-size: var(--mantine-font-size-sm);
+        font-size: rem(18px);
     }
 }
 
@@ -58,6 +59,12 @@
     font-size: rem(24px);
     font-family: BebasRegular, "Roboto", sans-serif;
     font-weight: 200;
+    color: black;
+    background-color: var(--mantine-color-white);
+    @mixin hover {
+        background-color: #a3a3a3;
+        color: black;
+    }
     @media (max-width: $mantine-breakpoint-sm) {
         width: 100%;
     }

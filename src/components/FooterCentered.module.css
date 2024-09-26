@@ -24,3 +24,11 @@
 .image {
     height: rem(25px);
 }
+
+.text {
+    padding-right: 100px;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        padding-right: 0;
+    }
+}
