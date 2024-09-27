@@ -1,6 +1,8 @@
-import { Text, Title, SimpleGrid, Stack, Transition } from '@mantine/core';
+import {BackgroundImage, SimpleGrid, Stack, Text, Title, Transition} from '@mantine/core';
 import classes from './FeaturesGrid.module.css';
-import { useInView } from "react-intersection-observer";
+import {useInView} from "react-intersection-observer";
+
+import aboutbg from '../assets/aboutBG.jpg'
 
 export const MOCKDATA = [
     {
@@ -35,32 +37,35 @@ interface FeatureProps {
     price: React.ReactNode;
 }
 
-export function Feature({ title, description, price }: FeatureProps) {
+export function Feature({title, description, price}: FeatureProps) {
     return (
-        <Stack className={classes.card}>
-            <Text mt="lg" c={'white'} ta={"center"} className={classes.cardTitle}>
-                {title}
-            </Text>
-            <Text size="sm" lh={1.6} c={'white'} ta={"center"} className={classes.cardDescription}>
-                {description}
-            </Text>
-            <Text mb="lg" c={'white'} ta={"center"} className={classes.cardPrice}>
-                {price}
-            </Text>
-        </Stack>
+        <BackgroundImage src={aboutbg}>
+            <Stack className={classes.card} justify={'space-between'}>
+                <Text mt="lg" c={'white'} ta={"center"} className={classes.cardTitle}>
+                    {title}
+                </Text>
+                <Text size="sm" lh={1.6} c={'white'} ta={"center"} className={classes.cardDescription}>
+                    {description}
+                </Text>
+                <Text mb="lg" c={'white'} ta={"center"} className={classes.cardPrice}>
+                    {price}
+                </Text>
+
+            </Stack>
+        </BackgroundImage>
     );
 }
 
 export function FeaturesGrid() {
 
-    const { ref, inView } = useInView({
+    const {ref, inView} = useInView({
         /* Optional options */
         triggerOnce: true,
         threshold: 0.1,
     });
 
 
-    const features = MOCKDATA.map((feature, index) => <Feature {...feature} key={index} />);
+    const features = MOCKDATA.map((feature, index) => <Feature {...feature} key={index}/>);
 
     return (
         <div ref={ref} className={classes.div}>
@@ -75,9 +80,9 @@ export function FeaturesGrid() {
                     <Stack className={classes.wrapper} style={styles} align={"center"} justify={"center"}>
                         <Title className={classes.title}>Cenník</Title>
                         <SimpleGrid
-                            cols={{ base: 1, sm: 2, md: 4 }}
-                            spacing={{ base: 'xl', md: 50 }}
-                            verticalSpacing={{ base: 'xl', md: 50 }}
+                            cols={{base: 1, sm: 2, md: 4}}
+                            spacing={{base: 'xl', md: 50}}
+                            verticalSpacing={{base: 'xl', md: 50}}
                             className={classes.simpleGrid}
                         >
                             {features}

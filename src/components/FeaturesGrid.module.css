@@ -2,7 +2,7 @@
     padding-top: calc(var(--mantine-spacing-xl) * 4);
     padding-bottom: calc(var(--mantine-spacing-xl) * 4);
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: $ mantine-breakpoint-sm) {
         padding-top: calc(var(--mantine-spacing-xl) * 2);
         padding-bottom: calc(var(--mantine-spacing-xl) * 2);
     }
@@ -15,63 +15,60 @@
     margin-bottom: var(--mantine-spacing-md);
     text-align: center;
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: $ mantine-breakpoint-sm) {
         font-size: rem(28px);
     }
 }
 
 
-.cardTitle{
+.cardTitle {
     font-family: BebasRegular, "Roboto", sans-serif;
     font-weight: 500;
     font-size: rem(32px);
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: $ mantine-breakpoint-sm) {
         font-size: rem(24px);
     }
 }
 
-.cardPrice{
+.cardPrice {
     font-family: BebasRegular, "Roboto", sans-serif;
     font-weight: 500;
     font-size: rem(40px);
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: $ mantine-breakpoint-sm) {
         font-size: rem(32px);
     }
 }
 
 
-
-.cardDescription{
+.cardDescription {
     font-family: Bahnschrift, "Roboto", sans-serif;
     font-size: rem(16px);
     margin-right: 30px;
     margin-left: 30px;
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: $ mantine-breakpoint-sm) {
         font-size: rem(12px);
     }
 }
 
 .card {
-    background-image: url("src/assets/aboutBG.jpg");
     border: #2c2929 solid 2px;
-    justify-content: space-between;
     height: rem(375px);
     width: rem(300px);
 
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: $ mantine-breakpoint-sm) {
         height: rem(300px);
         width: rem(225px);
     }
 }
 
-.simpleGrid{
+.simpleGrid {
     margin-top: 60px;
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: $ mantine-breakpoint-sm) {
         margin-top: 30px;
     }
 }

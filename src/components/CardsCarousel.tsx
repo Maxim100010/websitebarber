@@ -1,7 +1,7 @@
 import {Carousel} from '@mantine/carousel';
 import '@mantine/carousel/styles.css';
 import {useMediaQuery} from '@mantine/hooks';
-import {Paper, useMantineTheme, BackgroundImage, Transition} from '@mantine/core';
+import {BackgroundImage, Paper, Transition, useMantineTheme} from '@mantine/core';
 import classes from './CardsCarousel.module.css';
 
 // Importing images directly
@@ -11,6 +11,7 @@ import sofaImage from '../assets/rsz_sofa.jpg';
 import chair2Image from '../assets/rsz_chair2.jpg';
 import {useInView} from "react-intersection-observer";
 
+import aboutBG from '../assets/aboutBG.jpg'
 
 interface CardProps {
     image: string;
@@ -59,7 +60,7 @@ export function CardsCarousel() {
     });
 
     return (
-        <BackgroundImage src={'src/assets/aboutBG.jpg'} ref={ref}>
+        <BackgroundImage src={aboutBG} ref={ref}>
             <div className={classes.div}>
                 <Transition
                     mounted={inView} // Only show the stack when visible

@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import {rem, Container, Group, Burger, Drawer, Stack} from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { Image } from '@mantine/core';
-import { Button } from '@mantine/core';
+import {MouseEvent, useState} from 'react';
+import {Burger, Button, Container, Drawer, Group, Image, rem, Stack} from '@mantine/core';
+import {useDisclosure} from '@mantine/hooks';
 import classes from './HeaderSimple.module.css';
 
+import logoremovebg from '../assets/logo-removebg.png';
+
 const links = [
-    { link: '#about', label: 'O Nás' },
-    { link: '#pricing', label: 'Cenník' },
-    { link: '#gallery', label: 'Galéria' },
-    { link: '#contact', label: 'Kontakt' },
+    {link: '#about', label: 'O Nás'},
+    {link: '#pricing', label: 'Cenník'},
+    {link: '#gallery', label: 'Galéria'},
+    {link: '#contact', label: 'Kontakt'},
 ];
 
 export function HeaderSimple() {
-    const [opened, { toggle }] = useDisclosure(false);
+    const [opened, {toggle}] = useDisclosure(false);
     const [active, setActive] = useState(links[0].link);
 
     // Custom scroll function with offset for moving header
-    const scrollToSection = (event, target) => {
+    const scrollToSection = (event: MouseEvent<HTMLAnchorElement>, target: string) => {
         event.preventDefault();
         setActive(target);
 
@@ -55,17 +55,17 @@ export function HeaderSimple() {
             <Container fluid className={classes.inner}>
                 <Image
                     className={classes.image}
-                    src="src/assets/logo-removebg.png"
-                    />
+                    src={logoremovebg}
+                />
                 <Group gap={5} visibleFrom="xs">
                     {items}
                 </Group>
 
 
-                <Button size="xl" radius="xl" visibleFrom={"md"} mr={100} className={classes.button} >Rezervovať</Button>
+                <Button size="xl" radius="xl" visibleFrom={"md"} mr={100} className={classes.button}>Rezervovať</Button>
 
 
-                <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" pr={rem(50)} />
+                <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" pr={rem(50)}/>
 
                 <Drawer opened={opened} onClick={toggle} onClose={close} position="right" padding="md" size="100%">
                     <Stack gap="lg">
