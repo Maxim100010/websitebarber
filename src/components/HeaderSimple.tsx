@@ -1,29 +1,39 @@
-import {MouseEvent, useState} from 'react';
-import {Burger, Button, Container, Drawer, Group, Image, rem, Stack} from '@mantine/core';
-import {useDisclosure} from '@mantine/hooks';
+import { MouseEvent, useState } from 'react';
+import { Burger, Button, Container, Drawer, em, Group, Image, rem, Stack, Text } from '@mantine/core';
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 import classes from './HeaderSimple.module.css';
 
 import logoremovebg from '../assets/logo-removebg.png';
 
 const links = [
-    {link: '#about', label: 'O Nás'},
-    {link: '#pricing', label: 'Cenník'},
-    {link: '#gallery', label: 'Galéria'},
-    {link: '#contact', label: 'Kontakt'},
+    { link: '#about', label: 'O Nás' },
+    { link: '#pricing', label: 'Cenník' },
+    { link: '#gallery', label: 'Galéria' },
+    { link: '#contact', label: 'Kontakt' },
 ];
 
 export function HeaderSimple() {
-    const [opened, {toggle}] = useDisclosure(false);
+    const [opened, { toggle, close }] = useDisclosure(false);
     const [active, setActive] = useState(links[0].link);
+    const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
 
     // Custom scroll function with offset for moving header
     const scrollToSection = (event: MouseEvent<HTMLAnchorElement>, target: string) => {
         event.preventDefault();
         setActive(target);
 
+        // Special case for scrolling to the top (image click)
+        if (target === '#') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+            return;
+        }
+
         // Get the element to scroll to
         const element = document.querySelector(target);
-        const offset = 140; // Fixed offset of 30px
+        const offset = isMobile ? 80 : 120;
 
         if (element) {
             // Calculate the scroll position with offset
@@ -33,7 +43,7 @@ export function HeaderSimple() {
             // Smooth scroll to the position
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth',
+                behavior: isMobile ? 'instant' : 'smooth',
             });
         }
     };
@@ -49,30 +59,35 @@ export function HeaderSimple() {
             {link.label}
         </a>
     ));
+
     return (
         <header className={classes.header}>
-
             <Container fluid className={classes.inner}>
-                <Image
-                    className={classes.image}
-                    src={logoremovebg}
-                />
-                <Group gap={5} visibleFrom="xs">
+                {/* Image scroll to top */}
+                <a href="#" onClick={(event) => scrollToSection(event, '#')}>
+                    <Image
+                        className={classes.image}
+                        src={logoremovebg}
+                    />
+                </a>
+                <Group gap={5} visibleFrom="md">
                     {items}
                 </Group>
 
+                <Button size="xl" radius="xl" visibleFrom={"md"} className={classes.button}>
+                    <Text className={classes.buttonText}>Rezervovať</Text>
+                </Button>
 
-                <Button size="xl" radius="xl" visibleFrom={"md"} mr={100} className={classes.button}>Rezervovať</Button>
-
-
-                <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" pr={rem(50)}/>
+                <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="md" pr={rem(50)} />
 
                 <Drawer opened={opened} onClick={toggle} onClose={close} position="right" padding="md" size="100%">
                     <Stack gap="lg">
                         {items}
+                        <a className={classes.link} data-active={undefined}>
+                            {'Rezervácia'}
+                        </a>
                     </Stack>
                 </Drawer>
-
             </Container>
         </header>
     );

@@ -10,3 +10,31 @@
   src: local("BebasNeue-Regular"),
   url("./fonts/BebasNeue-Regular.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "CursiveSerif-Bold";   /*Can be any text*/
+  src: local("CursiveSerif-Bold"),
+  url("./fonts/CursiveSerif-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "CursiveSerif-Book";   /*Can be any text*/
+  src: local("CursiveSerif-Bold"),
+  url("./fonts/CursiveSerif-Book.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Blenda";   /*Can be any text*/
+  src: local("Blenda"),
+  url("./fonts/Blenda Script.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Turis";   /*Can be any text*/
+  src: local("Turis"),
+  url("./fonts/Turis-Light.otf") format("truetype");
+}
+
+.loading {
+  display: none;
+}

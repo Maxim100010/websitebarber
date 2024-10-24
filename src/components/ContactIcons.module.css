@@ -10,9 +10,11 @@
 }
 
 .title {
+    font-family: Bahnschrift, Roboto, sans-serif;
     color: var(--mantine-color-black);
 }
 
 .description {
+    font-family: Bahnschrift, Roboto, sans-serif;
     color: var(--mantine-color-black);
 }

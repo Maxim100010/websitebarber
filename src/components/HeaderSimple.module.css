@@ -1,25 +1,47 @@
 .header {
-    height: rem(120px);
-    position: sticky;
+    height: rem(100px);
+    position: fixed;
+    width: 100%;
     top: 0;
     background: rgb(193, 193, 193);
     background: linear-gradient(90deg, rgba(128, 128, 128, 0.85) 0%, rgba(188, 188, 188, 0.85) 50%, rgba(128, 128, 128, 0.85) 100%);
     z-index: 2;
+
+    @media (max-width: 36em){
+        height: rem(80px);
+    }
+
+
 }
 
 .image {
     margin-left: rem(50px);
     height: rem(250px);
     width: auto;
+    pointer-events: none;
+
+    @media (max-width: 48em){
+        margin-left: rem(10px);
+        height: rem(200px);
+    }
+
+    @media (max-width: 36em){
+        margin-left: rem(5px);
+        height: rem(175px);
+    }
 }
 
 .inner {
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-    height: rem(120px);
+    height: rem(100px);
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 36em){
+        height: rem(80px);
+    }
 }
 
 .link {
@@ -30,9 +52,9 @@
     border-radius: var(--mantine-radius-sm);
     text-decoration: none;
     color: rgba(48, 52, 55, 255);
-    font-family: BebasRegular, "Roboto", sans-serif;
+    font-family: CursiveSerif-Book, "Roboto", sans-serif;
+    font-weight: bold;
     font-size: var(--mantine-font-size-xl);
-    font-weight: 100;
 
     @mixin hover {
         background-color: rgb(28, 30, 32);
@@ -46,13 +68,27 @@
 }
 
 .button {
-    font-size: rem(26px);
-    font-family: BebasRegular, "Roboto", sans-serif;
-    font-weight: 100;
+    font-size: rem(25px);
+    font-family: CursiveSerif-Book, "Roboto", sans-serif;
+    font-weight: bold;
     background-color: rgba(48, 52, 55, 255);
-
+    margin-right: rem(100px);
 
     @mixin hover {
         background-color: rgb(28, 30, 32);
     }
+
+    @media (max-width: 1050px){
+        margin-right: rem(10px);
+
+    }
+}
+
+.buttonText{
+    font-size: rem(25px);
+    font-family: CursiveSerif-Book, "Roboto", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding-right: 5px;
 }

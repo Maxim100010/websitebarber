@@ -8,19 +8,19 @@ export const MOCKDATA = [
     {
         title: 'Pánsky Strih',
         description:
-            'Strih strojčekom/nožnicami, umytie vlasov, masáž hlavy, styling',
+            'Strih strojčekom / nožnicami, umytie vlasov, masáž hlavy, styling',
         price: '18€'
     },
     {
         title: 'Pánsky Strih s úpravou brady',
         description:
-            'Strih strojčekom/nožnicami, umytie vlasov, masáž hlavy, styling, úprava brady, holenie s horúcim uterákom, konečná úprava',
+            'Strih strojčekom / nožnicami, umytie vlasov, masáž hlavy, styling, úprava brady, holenie s horúcim uterákom, konečná úprava',
         price: '28€'
     },
     {
         title: 'Detský strih',
         description:
-            'Do 6.r - Strih strojčekom/nožnicami, umytie vlasov, masáž hlavy, styling)',
+            'Do 6.r - Strih strojčekom / nožnicami, umytie vlasov, masáž hlavy, styling)',
         price: '15€'
     },
     {
@@ -39,7 +39,7 @@ interface FeatureProps {
 
 export function Feature({title, description, price}: FeatureProps) {
     return (
-        <BackgroundImage src={aboutbg}>
+        <BackgroundImage src={aboutbg} className={classes.img}>
             <Stack className={classes.card} justify={'space-between'}>
                 <Text mt="lg" c={'white'} ta={"center"} className={classes.cardTitle}>
                     {title}
@@ -80,7 +80,7 @@ export function FeaturesGrid() {
                     <Stack className={classes.wrapper} style={styles} align={"center"} justify={"center"}>
                         <Title className={classes.title}>Cenník</Title>
                         <SimpleGrid
-                            cols={{base: 1, sm: 2, md: 4}}
+                            cols={{base: 1, sm: 2, md:2, lg: 2, xl:4}}
                             spacing={{base: 'xl', md: 50}}
                             verticalSpacing={{base: 'xl', md: 50}}
                             className={classes.simpleGrid}

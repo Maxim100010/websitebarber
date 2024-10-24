@@ -31,16 +31,16 @@ function Card({image}: CardProps) {
 
 const data = [
     {
-        image: receptionImage
+        image: chair1Image
     },
     {
-        image: chair1Image
+        image: chair2Image
     },
     {
         image: sofaImage
     },
     {
-        image: chair2Image
+        image: receptionImage
     },
 ];
 

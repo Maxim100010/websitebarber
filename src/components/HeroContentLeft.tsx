@@ -1,9 +1,16 @@
-import {Button, Container, Overlay, Text, Title, Transition} from '@mantine/core';
+import {BackgroundImage, Button, Container, em, Overlay, Text, Transition, Image, Divider } from '@mantine/core';
 import classes from './HeroContentLeft.module.css';
 import {useInView} from "react-intersection-observer";
 
+import bgimg from "../assets/herobackground-alt3.jpg"
+import mobilebgimg from "../assets/stockmobile.jpg"
+import {useMediaQuery} from "@mantine/hooks";
+import whitelogo from "../assets/logo-text-white.png"
+
 
 export function HeroContentLeft() {
+
+    const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
 
     const {ref, inView} = useInView({
         /* Optional options */
@@ -12,7 +19,9 @@ export function HeroContentLeft() {
     });
 
     return (
+        <BackgroundImage src={isMobile? mobilebgimg : bgimg}>
         <div className={classes.hero} ref={ref}>
+
             <Overlay
                 gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
                 opacity={1}
@@ -26,17 +35,22 @@ export function HeroContentLeft() {
             >
                 {(styles) => (
                     <Container className={classes.container} size="md" style={styles}>
-                        <Title className={classes.title}>Prestížne Pánske Holičstvo v Nitre</Title>
-                        <Text className={classes.description} size="xl" mt="xl">
-                            Braneckého 1510/15, 949 01 Nitra
+                        <Image src={whitelogo} className={classes.image}/>
+                        <Text className={classes.subtitle} size="xl" mt="xl">
+                            &#34;Pánske holičstvo s vlastnou identitou&#34;
                         </Text>
-
+                        <Divider w={'25%'} variant={'solid'} size={'md'} color={"#97856C"} mt={'md'}/>
+                        <Text className={classes.description} size="xl">
+                            Štýlové strihy, precízne holenie a jedinečný zážitok pre každého gentlemana
+                        </Text>
                         <Button size="xl" radius="xl" className={classes.control}>
-                            Rezervovať
+                            <Text className={classes.buttonText}>Rezervovať</Text>
                         </Button>
                     </Container>
                 )}
             </Transition>
+
         </div>
+        </BackgroundImage>
     );
 }

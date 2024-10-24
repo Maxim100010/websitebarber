@@ -20,7 +20,9 @@ export function FooterCentered() {
 
                 <Group gap="xs" justify="flex-end" wrap="nowrap">
                     <ActionIcon size="lg" variant="default" radius="xl">
-                        <IconBrandInstagram style={{width: rem(18), height: rem(18)}} stroke={1.5}/>
+                        <a href={'https://www.instagram.com/la_casa_de_barber_nitra?igsh=MTVkZGxkZ3RtNng4Ng=='} target={'_blank'} rel={'noreferrer'}>
+                            <IconBrandInstagram style={{width: rem(18), height: rem(18)}} stroke={1.5}/>
+                        </a>
                     </ActionIcon>
                 </Group>
             </div>

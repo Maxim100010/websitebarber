@@ -26,7 +26,7 @@ function ContactIcon({icon: Icon, title, description, ...others}: ContactIconPro
 }
 
 const MOCKDATA = [
-    {title: 'Email', description: 'email', icon: IconAt},
+    {title: 'Email', description: 'lacasadominik@gmail.com', icon: IconAt},
     {title: 'Telefón', description: '+421 915 559 476', icon: IconPhone},
     {title: 'Adresa', description: 'Braneckého 1510/15, 949 01 Nitra', icon: IconMapPin},
     {title: 'Otváracia doba', description: 'Po/Str/Pi 9:00-19:00 Ut/Št 8:00-16:00', icon: IconSun},

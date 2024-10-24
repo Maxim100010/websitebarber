@@ -7,7 +7,7 @@
 
 .div {
     min-height: 700px;
-    @media (max-width: $ mantine-breakpoint-sm) {
+    @media (max-width: 48em) {
         min-height: 500px;
     }
     padding: 128px 0 128px 0;
