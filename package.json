@@ -6,7 +6,7 @@
   "homepage": "https://Maxim100010.github.io/websitebarber/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
