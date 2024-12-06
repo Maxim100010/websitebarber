@@ -1,9 +1,9 @@
-import { MouseEvent, useState } from 'react';
-import { Burger, Button, Container, Drawer, em, Group, Image, rem, Stack, Text } from '@mantine/core';
+import { useEffect, MouseEvent, useState } from 'react';
+import { Burger, Button, Container, Drawer, Group, Image, rem, Stack, Text } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 import classes from './HeaderSimple.module.css';
-
 import logoremovebg from '../assets/logo-removebg.png';
+import removebglogo from '../assets/logo-text-removebg.png'
 
 const links = [
     { link: '#about', label: 'O Nás' },
@@ -15,36 +15,47 @@ const links = [
 export function HeaderSimple() {
     const [opened, { toggle, close }] = useDisclosure(false);
     const [active, setActive] = useState(links[0].link);
-    const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
+    const isMobile = useMediaQuery(`(max-width: 991px)`);
+    const [isHeaderVisible, setHeaderVisible] = useState(true);
+    const [isHeaderShrunk, setHeaderShrunk] = useState(false);
 
-    // Custom scroll function with offset for moving header
+    // Track scroll position and apply either hiding or shrinking effect
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                if (isMobile) {
+                    setHeaderVisible(false);
+                } else {
+                    setHeaderShrunk(true);
+                }
+            } else {
+                setHeaderVisible(true);
+                setHeaderShrunk(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isMobile]);
+
     const scrollToSection = (event: MouseEvent<HTMLAnchorElement>, target: string) => {
         event.preventDefault();
         setActive(target);
 
-        // Special case for scrolling to the top (image click)
         if (target === '#') {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
 
-        // Get the element to scroll to
         const element = document.querySelector(target);
         const offset = isMobile ? 80 : 120;
 
         if (element) {
-            // Calculate the scroll position with offset
             const elementPosition = element.getBoundingClientRect().top + window.scrollY;
             const offsetPosition = elementPosition - offset;
-
-            // Smooth scroll to the position
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: isMobile ? 'instant' : 'smooth',
-            });
+            window.scrollTo({ top: offsetPosition, behavior: isMobile ? 'instant' : 'smooth' });
         }
     };
 
@@ -61,29 +72,31 @@ export function HeaderSimple() {
     ));
 
     return (
-        <header className={classes.header}>
-            <Container fluid className={classes.inner}>
-                {/* Image scroll to top */}
+        <header
+            className={`${classes.header} ${!isHeaderVisible && isMobile ? classes.hidden : ''} ${
+                isHeaderShrunk && !isMobile ? classes.shrunk : ''
+            }`}
+        >
+            <Container fluid className={`${classes.inner} ${isHeaderShrunk ? classes.shrunk : ''}`}>
                 <a href="#" onClick={(event) => scrollToSection(event, '#')}>
-                    <Image
-                        className={classes.image}
-                        src={logoremovebg}
-                    />
+                    <Image className={isHeaderShrunk ? classes.imagelogo : classes.imagefull}
+                           src={isHeaderShrunk ? removebglogo : logoremovebg} width={150} height={150}/>
                 </a>
-                <Group gap={5} visibleFrom="md">
+                <Group gap={5} visibleFrom="md" className={isHeaderShrunk ? classes.grpshrunk : classes.grp}>
                     {items}
                 </Group>
-
-                <Button size="xl" radius="xl" visibleFrom={"md"} className={classes.button}>
-                    <Text className={classes.buttonText}>Rezervovať</Text>
-                </Button>
-
-                <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="md" pr={rem(50)} />
-
+                <a href={"https://booqme.sk/sk/rezervacia/la-casa-de-barber"}>
+                    <Button size={isHeaderShrunk ? "md" : "xl"} radius="xl" visibleFrom="md"
+                            className={`${classes.button} ${isHeaderShrunk ? classes.shrunk : ''}`}>
+                        <Text
+                            className={`${classes.buttonText} ${isHeaderShrunk ? classes.shrunk : ''}`}>Rezervovať</Text>
+                    </Button>
+                </a>
+                <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="md" pr={rem(50)}/>
                 <Drawer opened={opened} onClick={toggle} onClose={close} position="right" padding="md" size="100%">
                     <Stack gap="lg">
                         {items}
-                        <a className={classes.link} data-active={undefined}>
+                        <a className={classes.link} data-active={undefined} href={"https://booqme.sk/sk/rezervacia/la-casa-de-barber"}>
                             {'Rezervácia'}
                         </a>
                     </Stack>

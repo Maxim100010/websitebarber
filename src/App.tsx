@@ -11,13 +11,15 @@ import {createTheme, Loader, MantineProvider} from '@mantine/core';
 import '@mantine/core/styles.css'
 import { ContactUs } from './components/ContactUs.tsx';
 import {useEffect, useState} from "react";
-
+import {BackToTop} from "./components/ToTopArrow.tsx";
+import {ScrollBurger} from "./components/ScrollBurger.tsx";
 
 import logoremovebg from './assets/logo-removebg.png';
 import footerlogo from './assets/logo-text-removebg.png'
 import aboutbg from './assets/aboutBG.jpg'
 import logoplaceholder from './assets/logo.jpeg'
 import instaicon from './assets/insta.svg'
+
 
 // Your theme configuration is merged with default theme
 const theme = createTheme({
@@ -55,7 +57,7 @@ export default function App() {
         return (
             <MantineProvider theme={theme}>{
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <Loader size="xl" variant="bars" /> {/* Simple spinner loader */}
+                <Loader size="xl" variant="bars" color={"black"}/> {/* Simple spinner loader */}
             </div>
             }</MantineProvider>
         );
@@ -65,6 +67,8 @@ export default function App() {
     return <MantineProvider theme={theme}>{
         <div className={loading? 'loading' : ''}>
             <HeaderSimple/>
+            <ScrollBurger></ScrollBurger>
+            <BackToTop></BackToTop>
             <div>
                 <HeroContentLeft></HeroContentLeft>
             </div>

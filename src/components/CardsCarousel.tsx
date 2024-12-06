@@ -1,17 +1,30 @@
 import {Carousel} from '@mantine/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
 import '@mantine/carousel/styles.css';
 import {useMediaQuery} from '@mantine/hooks';
-import {BackgroundImage, Paper, Transition, useMantineTheme} from '@mantine/core';
+import {BackgroundImage, Paper, rem, Transition, useMantineTheme} from '@mantine/core';
 import classes from './CardsCarousel.module.css';
 
-// Importing images directly
-import receptionImage from '../assets/rsz_reception.jpg';
-import chair1Image from '../assets/rsz_chair1.jpg';
-import sofaImage from '../assets/rsz_sofa.jpg';
-import chair2Image from '../assets/rsz_chair2.jpg';
-import {useInView} from "react-intersection-observer";
-
 import aboutBG from '../assets/aboutBG.jpg'
+
+// New Images
+import _1 from "../assets/galleryImages/1.jpeg"
+import _2 from "../assets/galleryImages/2.jpeg"
+import _3 from "../assets/galleryImages/3.jpeg"
+import _4 from "../assets/galleryImages/4.jpeg"
+import _5 from "../assets/galleryImages/5.jpeg"
+import _6 from "../assets/galleryImages/6.jpeg"
+import _7 from "../assets/galleryImages/7.jpeg"
+import _8 from "../assets/galleryImages/8.jpeg"
+import _9 from "../assets/galleryImages/9.jpeg"
+import _10 from "../assets/galleryImages/10.jpeg"
+import _11 from "../assets/galleryImages/11.jpeg"
+import _12 from "../assets/galleryImages/12.jpeg"
+
+import {useInView} from "react-intersection-observer";
+import {useRef} from "react";
+
 
 interface CardProps {
     image: string;
@@ -29,27 +42,14 @@ function Card({image}: CardProps) {
     );
 }
 
-const data = [
-    {
-        image: chair1Image
-    },
-    {
-        image: chair2Image
-    },
-    {
-        image: sofaImage
-    },
-    {
-        image: receptionImage
-    },
-];
+const data = [ _8, _9, _10, _11, _12, _5, _6, _1, _2, _3, _4, _7];
 
 export function CardsCarousel() {
     const theme = useMantineTheme();
     const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-    const slides = data.map((item) => (
-        <Carousel.Slide key={item.image}>
-            <Card {...item} />
+    const slides = data.map((image) => (
+        <Carousel.Slide key={image}>
+            <Card image={image} />
         </Carousel.Slide>
     ));
 
@@ -58,6 +58,8 @@ export function CardsCarousel() {
         triggerOnce: true,
         threshold: 0.1,
     });
+
+    const autoplay = useRef(Autoplay({ delay: 2000 }));
 
     return (
         <BackgroundImage src={aboutBG} ref={ref}>
@@ -70,6 +72,12 @@ export function CardsCarousel() {
                 >
                     {(styles) => (
                         <Carousel
+                            withIndicators
+                            plugins={[autoplay.current]}
+                            onMouseEnter={autoplay.current.stop}
+                            onMouseLeave={autoplay.current.reset}
+                            nextControlIcon={<IconArrowRight style={{ width: rem(20), height: rem(20) }} />}
+                            previousControlIcon={<IconArrowLeft style={{ width: rem(20), height: rem(20) }} />}
                             slideSize={{base: '100%', sm: '50%'}}
                             align="center"
                             slidesToScroll={mobile ? 1 : 1}

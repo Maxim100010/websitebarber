@@ -14,7 +14,6 @@
     font-size: rem(50px);
     margin-bottom: var(--mantine-spacing-md);
     text-align: center;
-    text-decoration: underline;
 
     @media (max-width: 48em) {
         font-size: rem(38px);

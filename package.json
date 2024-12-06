@@ -11,7 +11,6 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-
   },
   "dependencies": {
     "@mantine/carousel": "^7.13.0",
@@ -33,7 +32,9 @@
     "@tiptap/react": "^2.7.4",
     "@tiptap/starter-kit": "^2.7.4",
     "dayjs": "^1.11.13",
+    "embla-carousel-autoplay": "^7.1.0",
     "embla-carousel-react": "^7.1.0",
+    "gh-pages": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.13.1",

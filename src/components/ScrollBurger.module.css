@@ -1,0 +1,18 @@
+.scrollBurger {
+    position: fixed;
+    top: 20px; /* Adjust as necessary */
+    right: 20px;
+    z-index: 2;
+    display: none;
+    transition: all 0.3s ease;
+    border-radius: rem(15px);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px) saturate(180%);
+    -webkit-backdrop-filter: blur(4px) saturate(180%);
+}
+
+.scrollBurger.visible {
+    transition: all 0.3s ease;
+    display: block;
+    opacity: 1;
+}

@@ -2,8 +2,8 @@ import {BackgroundImage, Button, Container, em, Overlay, Text, Transition, Image
 import classes from './HeroContentLeft.module.css';
 import {useInView} from "react-intersection-observer";
 
-import bgimg from "../assets/herobackground-alt3.jpg"
-import mobilebgimg from "../assets/stockmobile.jpg"
+import bgimg from "../assets/galleryImages/newhero.png"
+import mobilebgimg from "../assets/galleryImages/mobileherobg.jpeg"
 import {useMediaQuery} from "@mantine/hooks";
 import whitelogo from "../assets/logo-text-white.png"
 
@@ -23,7 +23,7 @@ export function HeroContentLeft() {
         <div className={classes.hero} ref={ref}>
 
             <Overlay
-                gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
+                gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 50%)"
                 opacity={1}
                 zIndex={0}
             />
@@ -43,9 +43,11 @@ export function HeroContentLeft() {
                         <Text className={classes.description} size="xl">
                             Štýlové strihy, precízne holenie a jedinečný zážitok pre každého gentlemana
                         </Text>
-                        <Button size="xl" radius="xl" className={classes.control}>
-                            <Text className={classes.buttonText}>Rezervovať</Text>
-                        </Button>
+                        <a href={"https://booqme.sk/sk/rezervacia/la-casa-de-barber"}>
+                            <Button size="xl" radius="xl" className={classes.control}>
+                                <Text className={classes.buttonText}>Rezervovať</Text>
+                            </Button>
+                        </a>
                     </Container>
                 )}
             </Transition>

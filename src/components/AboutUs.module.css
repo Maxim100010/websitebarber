@@ -1,6 +1,6 @@
 .stack {
     justify-content: space-between;
-    padding: 50px 100px 75px 100px;
+    padding: 50px 125px 50px 125px;
     gap: 50px;
 
     @media (max-width: 90em) {
@@ -16,8 +16,6 @@
     font-weight: 300;
     font-size: rem(50px);
     text-align: center;
-    text-decoration: underline;
-
     @media (max-width: 75em) {
         font-size: rem(40px);
         line-height: 1.2;
@@ -31,11 +29,19 @@
     }
 }
 
+.insta {
+
+    max-width: 250px;
+
+    @media (max-width: 817px) {
+        max-width: 150px;
+    }
+}
+
 .titleRight {
     text-align: center;
     font-family: Blenda, "Roboto", sans-serif;
     font-weight: 300;
-    text-decoration: underline;
 
     @media (max-width: 48em) {
         font-size: rem(40px);
@@ -108,22 +114,30 @@
     }
 }
 
+.imagedominik{
+    border-right: ridge 10px #97856C;
+    border-bottom: ridge 10px #97856C;
+    border-left: groove 10px #97856C;
+    border-top: groove 10px #97856C;
+}
+
+
 .grp {
     justify-content: space-between;
-    align-items: center;
-    padding: 50px 200px 75px 100px;
+    padding: 50px 100px 75px 100px;
+    gap: 50px;
 
     @media (max-width: 90em) {
-        height: fit-content;
         padding: 50px 50px 50px 50px;
         justify-content: center;
-        align-items: center;
-        gap: 50px;
+        gap: 30px;
     }
 }
 
 .innergrp{
-    margin: 50px rem(250px) 0 rem(250px);
+    position:relative;
+    margin: 25px rem(250px) 0px rem(250px);
+    padding-bottom: 125px;
     justify-content: space-between;
     gap: 50px;
     @media (max-width: 110em) {
@@ -137,10 +151,12 @@
     }
     @media (max-width: 75em) {
         margin-top: 25px;
+        padding-bottom: 75px;
     }
 }
 
 .innerinnergrp {
+
     margin-top: 42px;
     @media (max-width: 75em) {
         gap: 30px;
@@ -149,14 +165,38 @@
     }
 }
 
+.clickme {
+    position: absolute;
+    top: 25%; /* Adjust as needed */
+    right: rem(250px); /* Positioning next to the main image */
+    width: 200px; /* Adjust the size as needed */
+
+    @media (max-width: 1190px) {
+        width: 125px;
+        top: 35%;
+        right: rem(220px);
+    }
+
+    @media (max-width: 817px) {
+        width: 125px;
+        top: 25%;
+        right: rem(150px);
+    }
+
+    @media (max-width: 450px) {
+        display: none;
+    }
+
+}
+
 .qr{
     border-radius: 15px;
     pointer-events: none;
 }
 
 .div {
-    min-height: 1000px;
+    min-height: 1037px;
     @media (max-width: 48em) {
-        min-height: 700px;
+        min-height: 1500px;
     }
 }

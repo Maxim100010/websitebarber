@@ -3,6 +3,7 @@ import classes from './FeaturesGrid.module.css';
 import {useInView} from "react-intersection-observer";
 
 import aboutbg from '../assets/aboutBG.jpg'
+import {useState} from "react";
 
 export const MOCKDATA = [
     {
@@ -38,8 +39,16 @@ interface FeatureProps {
 }
 
 export function Feature({title, description, price}: FeatureProps) {
+
+    const [hovered, setHovered] = useState(false); // Track hover state
+
     return (
-        <BackgroundImage src={aboutbg} className={classes.img}>
+        <BackgroundImage src={aboutbg} className={classes.img} onMouseEnter={() => setHovered(true)} // Start scaling animation on hover
+                         onMouseLeave={() => setHovered(false)} // Reset on mouse leave
+                         style={{
+                             transform: hovered ? 'scale(1.05)' : 'scale(1)',
+                             transition: 'transform 0.2s ease-out'
+                         }}>
             <Stack className={classes.card} justify={'space-between'}>
                 <Text mt="lg" c={'white'} ta={"center"} className={classes.cardTitle}>
                     {title}
@@ -65,6 +74,8 @@ export function FeaturesGrid() {
     });
 
 
+
+
     const features = MOCKDATA.map((feature, index) => <Feature {...feature} key={index}/>);
 
     return (
@@ -84,6 +95,7 @@ export function FeaturesGrid() {
                             spacing={{base: 'xl', md: 50}}
                             verticalSpacing={{base: 'xl', md: 50}}
                             className={classes.simpleGrid}
+
                         >
                             {features}
                         </SimpleGrid>
