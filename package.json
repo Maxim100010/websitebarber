@@ -3,7 +3,6 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "websitebarber.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
