@@ -1,18 +1,17 @@
 import './App.css'
-
 import '@mantine/core/styles.css';
-import {HeaderSimple} from "./components/HeaderSimple.tsx"
-import {FooterCentered} from "./components/FooterCentered.tsx"
-import {HeroContentLeft} from "./components/HeroContentLeft.tsx"
-import {FeaturesGrid} from "./components/FeaturesGrid.tsx"
-import {AboutUs} from "./components/AboutUs.tsx"
-import {CardsCarousel} from "./components/CardsCarousel.tsx"
+
+import {HeaderSimple} from "./components/Header/HeaderSimple.tsx"
+import {FooterCentered} from "./components/Footer/FooterCentered.tsx"
+import {HeroContentLeft} from "./components/Body/HeroContentLeft.tsx"
+import {FeaturesGrid} from "./components/Body/FeaturesGrid.tsx"
+import {AboutUs} from "./components/Body/AboutUs.tsx"
+import {CardsCarousel} from "./components/Body/CardsCarousel.tsx"
 import {createTheme, Loader, MantineProvider} from '@mantine/core';
-import '@mantine/core/styles.css'
-import { ContactUs } from './components/ContactUs.tsx';
+import {ContactUs} from './components/Body/ContactUs.tsx';
 import {useEffect, useState} from "react";
-import {BackToTop} from "./components/ToTopArrow.tsx";
-import {ScrollBurger} from "./components/ScrollBurger.tsx";
+import {BackToTop} from "./components/Navigation/ToTopArrow.tsx";
+import {ScrollBurger} from "./components/Navigation/ScrollBurger.tsx";
 
 import logoremovebg from './assets/logo-removebg.png';
 import footerlogo from './assets/logo-text-removebg.png'
@@ -34,10 +33,8 @@ export default function App() {
     useEffect(() => {
         const images = [
             logoremovebg,footerlogo,aboutbg,logoplaceholder,instaicon,
-            // Add all images you want to preload
         ];
 
-        // Create promises for each image and resolve them when the image is loaded
         const imagePromises = images.map((src) => {
             return new Promise<void>((resolve, reject) => {
                 const img = new Image();
@@ -57,7 +54,7 @@ export default function App() {
         return (
             <MantineProvider theme={theme}>{
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <Loader size="xl" variant="bars" color={"black"}/> {/* Simple spinner loader */}
+                <Loader size="xl" variant="bars" color={"black"}/>
             </div>
             }</MantineProvider>
         );

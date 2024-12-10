@@ -6,12 +6,6 @@
 }
 
 @font-face {
-  font-family: "BebasRegular";   /*Can be any text*/
-  src: local("BebasNeue-Regular"),
-  url("./fonts/BebasNeue-Regular.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "CursiveSerif-Bold";   /*Can be any text*/
   src: local("CursiveSerif-Bold"),
   url("./fonts/CursiveSerif-Bold.ttf") format("truetype");
