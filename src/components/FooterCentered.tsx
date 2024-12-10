@@ -12,6 +12,7 @@ export function FooterCentered() {
                 <Image
                     className={classes.image}
                     src={footerlogo}
+                    alt={"La casa de barber logo alternatívne"}
                 />
 
                 <Text size={rem(12)} className={classes.text}>

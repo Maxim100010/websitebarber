@@ -76,8 +76,8 @@ export function CardsCarousel() {
                             plugins={[autoplay.current]}
                             onMouseEnter={autoplay.current.stop}
                             onMouseLeave={autoplay.current.reset}
-                            nextControlIcon={<IconArrowRight style={{ width: rem(20), height: rem(20) }} />}
-                            previousControlIcon={<IconArrowLeft style={{ width: rem(20), height: rem(20) }} />}
+                            nextControlIcon={<IconArrowRight style={{ width: rem(20), height: rem(20) }} aria-label={"Right"}/>}
+                            previousControlIcon={<IconArrowLeft style={{ width: rem(20), height: rem(20) }} aria-label={"Left"}/>}
                             slideSize={{base: '100%', sm: '50%'}}
                             align="center"
                             slidesToScroll={mobile ? 1 : 1}
