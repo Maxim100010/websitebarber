@@ -19,13 +19,15 @@ export function FooterCentered() {
                 </Text>
 
                 <Group gap="xs" justify="flex-end" wrap="nowrap">
-                    <ActionIcon size="lg" variant="default" radius="xl">
-                        <a href={'https://www.instagram.com/la_casa_de_barber_nitra?igsh=MTVkZGxkZ3RtNng4Ng=='} target={'_blank'} rel={'noreferrer'}>
+                    <a href={'https://www.instagram.com/la_casa_de_barber_nitra?igsh=MTVkZGxkZ3RtNng4Ng=='}
+                       target={'_blank'} rel={'noreferrer'}>
+                        <ActionIcon size="lg" variant="default" radius="xl" aria-label={"Instagram presmerovanie"}>
                             <IconBrandInstagram style={{width: rem(18), height: rem(18)}} stroke={1.5}/>
-                        </a>
-                    </ActionIcon>
+                        </ActionIcon>
+                    </a>
                 </Group>
             </div>
         </div>
-    );
+    )
+        ;
 }

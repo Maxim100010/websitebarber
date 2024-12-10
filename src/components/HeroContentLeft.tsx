@@ -20,7 +20,7 @@ export function HeroContentLeft() {
 
     return (
         <BackgroundImage src={isMobile? mobilebgimg : bgimg}>
-        <div className={classes.hero} ref={ref}>
+        <div className={classes.hero} ref={ref} role={"main"}>
 
             <Overlay
                 gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 50%)"

@@ -80,9 +80,9 @@ export function HeaderSimple() {
             <Container fluid className={`${classes.inner} ${isHeaderShrunk ? classes.shrunk : ''}`}>
                 <a href="#" onClick={(event) => scrollToSection(event, '#')}>
                     <Image className={isHeaderShrunk ? classes.opacity : classes.imagefull}
-                           src={logoremovebg}/>
+                           src={logoremovebg} alt={"Logo la casa de barber originalne"}/>
                     <Image className={isHeaderShrunk ? classes.imagelogo : classes.opacity}
-                           src={removebglogo}/>
+                           src={removebglogo} alt={"Logo la casa de barber alternatívne"}/>
                 </a>
                 <Group gap={5} visibleFrom="md" className={isHeaderShrunk ? classes.grpshrunk : classes.grp}>
                     {items}

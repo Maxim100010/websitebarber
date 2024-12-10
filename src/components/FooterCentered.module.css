@@ -10,6 +10,7 @@
     padding: var(--mantine-spacing-md) var(--mantine-spacing-md);
 
     @media (max-width: 48em) {
+        gap: 8px;
         flex-direction: column;
     }
 }

@@ -55,6 +55,7 @@ export function BackToTop() {
                     size="xl"
                     className={classes.backToTop}
                     onClick={handleScrollToTop}
+                    aria-label={"Back to top"}
                 >
                     <IconArrowUp size={24} />
                 </ActionIcon>
