@@ -116,7 +116,7 @@ export function AboutUs() {
                                            transition: 'transform 0.2s ease-out'
                                        }}>
                                     <AspectRatio ratio={5 / 7} maw={350} mah={500}>
-                                        <Image src={dominik} className={classes.imagedominik}></Image>
+                                        <Image src={dominik} className={classes.imagedominik} alt={"Fotografia barbera a majitela barbershopu Dominika"}></Image>
                                     </AspectRatio>
                                     <Divider w={'50%'} variant={'solid'} size={'md'} color={"#97856C"}
                                              hiddenFrom={'lg'}/>
@@ -131,11 +131,11 @@ export function AboutUs() {
                                     <div style={{position: "relative"}}>
                                         <a href={'https://www.instagram.com/la_casa_de_barber_nitra?igsh=MTVkZGxkZ3RtNng4Ng=='}
                                            target={'_blank'} rel={'noreferrer'}>
-                                            <Image src={instaicon} className={classes.insta}></Image>
+                                            <Image src={instaicon} className={classes.insta} alt={"Logo služby instagram"}></Image>
                                         </a>
-                                        <Image src={clickme} className={classes.clickme}></Image>
+                                        <Image src={clickme} className={classes.clickme} alt={"Text klikni sem"}></Image>
                                     </div>
-                                    <Image src={qr} maw={'190px'} className={classes.qr} visibleFrom={'md'}></Image>
+                                    <Image src={qr} maw={'190px'} className={classes.qr} visibleFrom={'md'} alt={"QR kód s prepojenim na instagram la casa de barber"}></Image>
                                 </Stack>
                             </Group>
                         )}

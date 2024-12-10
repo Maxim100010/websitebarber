@@ -35,7 +35,7 @@ export function HeroContentLeft() {
             >
                 {(styles) => (
                     <Container className={classes.container} size="md" style={styles}>
-                        <Image src={whitelogo} className={classes.image}/>
+                        <Image src={whitelogo} className={classes.image} alt={"Logo la casa de barber"}/>
                         <Text className={classes.subtitle} size="xl" mt="xl">
                             &#34;Pánske holičstvo s vlastnou identitou&#34;
                         </Text>

@@ -79,8 +79,10 @@ export function HeaderSimple() {
         >
             <Container fluid className={`${classes.inner} ${isHeaderShrunk ? classes.shrunk : ''}`}>
                 <a href="#" onClick={(event) => scrollToSection(event, '#')}>
-                    <Image className={isHeaderShrunk ? classes.imagelogo : classes.imagefull}
-                           src={isHeaderShrunk ? removebglogo : logoremovebg} width={150} height={150}/>
+                    <Image className={isHeaderShrunk ? classes.opacity : classes.imagefull}
+                           src={logoremovebg}/>
+                    <Image className={isHeaderShrunk ? classes.imagelogo : classes.opacity}
+                           src={removebglogo}/>
                 </a>
                 <Group gap={5} visibleFrom="md" className={isHeaderShrunk ? classes.grpshrunk : classes.grp}>
                     {items}
